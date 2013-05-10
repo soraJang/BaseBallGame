@@ -1,29 +1,30 @@
 package main.core;
 
 public class RecordBoard {
-	private int ball;
-	private int strike;
+	private int ballCount;
+	private int strikeCount;
 	private int gameCount = 0;
+	private int[] usedNum = {0,0,0};
 
 	public void setInitValue() {
-		this.ball = 0;
-		this.strike = 0;
+		this.ballCount = 0;
+		this.strikeCount = 0;
 	}
 
-	public int getBall() {
-		return ball;
+	public int getBallCount() {
+		return ballCount;
 	}
 
-	public void setBall(int ball) {
-		this.ball += ball;
+	public void setBallCount(int ballCount) {
+		this.ballCount += ballCount;
 	}
 
-	public int getStrike() {
-		return strike;
+	public int getStrikeCount() {
+		return strikeCount;
 	}
 
-	public void setStrike(int strike) {
-		this.strike += strike;
+	public void setStrikeCount(int strikeCount) {
+		this.strikeCount += strikeCount;
 	}
 
 	public int getGameCount() {
@@ -32,5 +33,13 @@ public class RecordBoard {
 
 	public void setGameCount(int gameCount) {
 		this.gameCount += gameCount;
+	}
+
+	public int[] getUsedNum() {
+		return usedNum;
+	}
+
+	public void setUsedNum(int[] usedNum) {
+		this.usedNum = usedNum;
 	}
 }

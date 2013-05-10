@@ -3,51 +3,61 @@ package main.core;
 import java.util.Arrays;
 
 public class RandomNum {
-	private RecordBoard record = new RecordBoard();
+	RecordBoard record;
 
-	private int[] num = { 0, 0, 0 };
+	private int[] randomNum = { 0, 0, 0 };
 
-	public RandomNum() {
-		this.num = getRandoms();
-	}
-
-	public RandomNum(int[] num) {
-		this.num = num;
-	}
-
-	public int[] getNum() {
-		return num;
-	}
-
-	public void setNum(int[] num) {
-		this.num = num;
-	}
-
-	public RecordBoard getRecord() {
-		return record;
-	}
-
-	public void setRecord(RecordBoard record) {
+	public RandomNum(RecordBoard record) {
 		this.record = record;
+		this.randomNum = getRandoms();
+		record.setUsedNum(randomNum);
 	}
 
-	private int getRandom() {
+	public RandomNum(int[] num, RecordBoard record) {
+		this.record = record;
+		this.randomNum = num;
+		record.setUsedNum(randomNum);
+	}
+
+	public int[] getRandomNum() {
+		return randomNum;
+	}
+
+	public void setRandomNum(int[] num) {
+		this.randomNum = num;
+	}
+
+	private int getOneRandomNum() {
 		int n = (int) (Math.random() * 10);
 		if (n == 0) {
-			return getRandom();
+			return getOneRandomNum();
 		}
 		return n;
 	}
 
 	private int[] getRandoms() {
 		for (int i = 0; i < 3; i++) {
-			num[i] = getRandom();
+			randomNum[i] = getOneRandomNum();
 		}
-		return num;
+		return isSame(randomNum) ? getRandoms() : randomNum;
 	}
 
 	@Override
 	public String toString() {
+		return Arrays.toString(randomNum);
+	}
+
+	private String converToString(int[] num) {
 		return Arrays.toString(num);
+	}
+
+	public boolean isSame(int[] createdNum) {
+		String recordNum = converToString(record.getUsedNum());
+
+		if (recordNum != null && recordNum.equals(converToString(createdNum))) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

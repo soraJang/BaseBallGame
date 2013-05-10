@@ -3,30 +3,30 @@ package main.core;
 import main.constants.Constants;
 
 public class CompareNum implements Constants {
-	RecordBoard record = new RecordBoard();
+	RecordBoard record;
 
-	public int getGameCount() {
-		return record.getGameCount();
+	public CompareNum(RecordBoard record) {
+		this.record = record;
 	}
 
-	public String compareComAndUser(RandomNum randomNum, RandomNum userNum) {
+	public String compareComAndUser(RandomNum comNum, RandomNum userNum) {
 		record.setInitValue();
 
-		if (randomNum.toString().equals(userNum.toString())) {
+		if (comNum.toString().equals(userNum.toString())) {
 			return HIT;
 		} else {
-			return StrikeOrBall(randomNum.getNum(), userNum.getNum());
+			return StrikeOrBall(comNum.getRandomNum(), userNum.getRandomNum());
 		}
 	}
 
-	private String StrikeOrBall(int[] randomNum, int[] userNum) {
-		for (int i = 0, iSize = randomNum.length; i < iSize; i++) {
-			if (randomNum[i] == userNum[i]) {
-				record.setStrike(1);
+	private String StrikeOrBall(int[] comNum, int[] userNum) {
+		for (int i = 0, iSize = comNum.length; i < iSize; i++) {
+			if (comNum[i] == userNum[i]) {
+				record.setStrikeCount(1);
 			} else {
 				for (int j = 0, jSize = userNum.length; j < jSize; j++) {
-					if (randomNum[i] == userNum[j]) {
-						record.setBall(1);
+					if (comNum[i] == userNum[j]) {
+						record.setBallCount(1);
 					}
 				}
 			}
@@ -35,18 +35,19 @@ public class CompareNum implements Constants {
 	}
 
 	private String resultStr() {
-		int strike = record.getStrike();
-		int ball = record.getBall();
+		int strikeCount = record.getStrikeCount();
+		int ballCount = record.getBallCount();
 
-		if (strike == 0 && ball == 0) {
+		if (strikeCount == 0 && ballCount == 0) {
 			return OUT;
 		}
 
-		String strikeStr = strike <= 1 ? BALNK + STRIKE + BALNK : BALNK + STRIKES + BALNK;
-		String ballStr = ball <= 1 ? BALNK + BALL : BALNK + BALLS;
+		String strikeStr = strikeCount <= 1 ? BALNK + STRIKE + BALNK : BALNK + STRIKES + BALNK;
+		String ballStr = ballCount <= 1 ? BALNK + BALL : BALNK + BALLS;
 
 		record.setGameCount(1);
 
-		return strike + strikeStr + ball + ballStr;
+		return strikeCount + strikeStr + ballCount + ballStr;
 	}
+
 }
