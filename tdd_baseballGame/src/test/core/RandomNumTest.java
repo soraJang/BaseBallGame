@@ -4,7 +4,6 @@ import junit.framework.TestCase;
 import main.core.RandomNum;
 import main.core.RecordBoard;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RandomNumTest extends TestCase {

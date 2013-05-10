@@ -4,7 +4,8 @@ public class RecordBoard {
 	private int ballCount;
 	private int strikeCount;
 	private int gameCount = 0;
-	private int[] usedNum = {0,0,0};
+	private int[] usedNum = { 0, 0, 0 };
+	private int gameNo = 0;
 
 	public void setInitValue() {
 		this.ballCount = 0;
@@ -41,5 +42,13 @@ public class RecordBoard {
 
 	public void setUsedNum(int[] usedNum) {
 		this.usedNum = usedNum;
+	}
+
+	public int getGameNo() {
+		return gameNo;
+	}
+
+	public void setGameNo() {
+		this.gameNo += 1;
 	}
 }

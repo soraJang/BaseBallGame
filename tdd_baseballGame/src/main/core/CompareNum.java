@@ -13,7 +13,7 @@ public class CompareNum implements Constants {
 		record.setInitValue();
 
 		if (comNum.toString().equals(userNum.toString())) {
-			return HIT;
+			return hitStr();
 		} else {
 			return StrikeOrBall(comNum.getRandomNum(), userNum.getRandomNum());
 		}
@@ -35,19 +35,35 @@ public class CompareNum implements Constants {
 	}
 
 	private String resultStr() {
-		int strikeCount = record.getStrikeCount();
-		int ballCount = record.getBallCount();
-
-		if (strikeCount == 0 && ballCount == 0) {
-			return OUT;
+		if (record.getGameCount() <= 10) {
+			int strikeCount = record.getStrikeCount();
+			int ballCount = record.getBallCount();
+			if (strikeCount == 0 && ballCount == 0) {
+				return outStr();
+			}
+			String strikeStr = strikeCount <= 1 ? BLANK + STRIKE + BLANK
+					: BLANK + STRIKES + BLANK;
+			String ballStr = ballCount <= 1 ? BLANK + BALL : BLANK + BALLS;
+			record.setGameCount(1);
+			return strikeCount + strikeStr + ballCount + ballStr;
+		} else {
+			return outStr();
 		}
-
-		String strikeStr = strikeCount <= 1 ? BALNK + STRIKE + BALNK : BALNK + STRIKES + BALNK;
-		String ballStr = ballCount <= 1 ? BALNK + BALL : BALNK + BALLS;
-
-		record.setGameCount(1);
-
-		return strikeCount + strikeStr + ballCount + ballStr;
 	}
 
+//	private String endMsg() {
+//		return ENDMSG;
+//	}
+//
+//	private String lastMsg() {
+//		return LASTMSG;
+//	}
+
+	private String outStr() {
+		return OUT;
+	}
+
+	private String hitStr() {
+		return HIT;
+	}
 }

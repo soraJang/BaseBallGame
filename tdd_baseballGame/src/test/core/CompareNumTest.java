@@ -61,4 +61,41 @@ public class CompareNumTest extends TestCase {
 		
 		assertEquals(3, record.getGameCount());
 	}
+	
+//	@Test
+//	public void testLimitedCount() {
+//		setRandomNum(new int[]{5,3,7});
+//		CompareNum check = new CompareNum(record);
+//
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,2,3}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,4,5}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,3,6}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,2,7}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{2,3,4}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,3,9}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{5,4,6}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,4,5}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,6,3}, record));
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{1,3,5}, record));
+//		assertEquals(10, record.getGameCount());
+//		
+//		check.compareComAndUser(randomNum, new RandomNum(new int[]{7,3,1}, record));
+//		
+//		assertEquals("out\n10번의 기회를 모두 사용하셨습니다.", check.compareComAndUser(randomNum, new RandomNum(new int[]{1,3,5}, record)));
+//	}
+	
+	@Test
+	public void testGameNo() {
+		RecordBoard record = new RecordBoard();
+
+		new RandomNum(new int[]{5,3,7}, record);
+		assertEquals(1, record.getGameNo());
+
+		new RandomNum(new int[]{1,2,3}, record);
+		assertEquals(2, record.getGameNo());
+
+		new RandomNum(new int[]{4,6,2}, record);
+		assertEquals(3, record.getGameNo());
+	}
+	
 }

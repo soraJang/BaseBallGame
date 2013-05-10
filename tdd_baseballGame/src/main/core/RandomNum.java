@@ -11,12 +11,14 @@ public class RandomNum {
 		this.record = record;
 		this.randomNum = getRandoms();
 		record.setUsedNum(randomNum);
+		record.setGameNo();
 	}
 
 	public RandomNum(int[] num, RecordBoard record) {
 		this.record = record;
 		this.randomNum = num;
 		record.setUsedNum(randomNum);
+		record.setGameNo();
 	}
 
 	public int[] getRandomNum() {
