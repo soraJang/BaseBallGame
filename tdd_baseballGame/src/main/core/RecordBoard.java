@@ -1,5 +1,7 @@
 package main.core;
 
+import java.util.Arrays;
+
 public class RecordBoard {
 	private int ballCount;
 	private int strikeCount;
@@ -51,4 +53,10 @@ public class RecordBoard {
 	public void setGameNo() {
 		this.gameNo += 1;
 	}
+
+	@Override
+	public String toString() {
+		return "[Gama Infomation]\n" + "현재 시도한 횟수 :  "+ getGameCount() + "\n" +"앞으로 시도 가능한 횟수 : " + String.valueOf(10 - getGameCount());
+	}
+
 }
