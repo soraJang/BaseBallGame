@@ -44,9 +44,11 @@ public class BaseballGame implements Constants {
 	private static BaseballGame startGame() throws IOException {
 		String msg = "";
 		System.out.println("game Start!");
+		System.out.println("[" + record.getGameNo() + "]번째 게임입니다.");
 		System.out.println("랜덤숫자가 생성되었습니다.");
-		
+
 		do {
+			System.out.printf("[" + (record.getGameCount()+1) + "]번째 시도 : ");
 			System.out.println("숫자를 입력해주세요 (ex: 123)");
 			BufferedReader bf = new BufferedReader(new InputStreamReader(
 					System.in));
@@ -54,16 +56,32 @@ public class BaseballGame implements Constants {
 			str = bf.readLine();
 			if (isInteger(str)) {
 				msg = check.compareComAndUser(random, new RandomNum(
-						converToArray(str), record));
+						convertToArray(str), record));
 				System.out.println(msg);
 			} else {
 				System.out.println("숫자만 입력해 주세요");
 			}
 		} while (msg != null && !msg.equals(HIT));
-		return startGame();
+
+		if (isRestart()) {
+			return startGame();
+		}
+		return null;
 	}
 
-	private static int[] converToArray(String str) {
+	private static boolean isRestart() throws IOException {
+		System.out.println("게임을 다시 시작하시겠습니까? (y/n)");
+
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		String str = bf.readLine().toLowerCase();
+
+		if (str.equals("y") || str.equals("yes")) {
+			return true;
+		}
+		return false;
+	}
+
+	private static int[] convertToArray(String str) {
 		int[] userNum = { 0, 0, 0 };
 		for (int i = 0; i < str.length(); i++) {
 			userNum[i] = str.charAt(i) - 48;

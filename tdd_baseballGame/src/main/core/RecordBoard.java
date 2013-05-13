@@ -1,6 +1,5 @@
 package main.core;
 
-import java.util.Arrays;
 
 public class RecordBoard {
 	private int ballCount;
