@@ -3,6 +3,8 @@ package main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 import main.constants.Constants;
 import main.core.CompareNum;
@@ -48,13 +50,16 @@ public class BaseballGame implements Constants {
 		System.out.println("랜덤숫자가 생성되었습니다.");
 
 		do {
-			System.out.printf("[" + (record.getGameCount()+1) + "]번째 시도 : ");
+			System.out.printf("[" + (record.getGameCount() + 1) + "]번째 시도 : ");
 			System.out.println("숫자를 입력해주세요 (ex: 123)");
 			BufferedReader bf = new BufferedReader(new InputStreamReader(
 					System.in));
 			String str;
 			str = bf.readLine();
-			if (isInteger(str)) {
+			
+			if (msg.equals(I)) {
+				showGameInfo();
+			} else if (isInteger(str)) {
 				msg = check.compareComAndUser(random, new RandomNum(
 						convertToArray(str), record));
 				System.out.println(msg);
