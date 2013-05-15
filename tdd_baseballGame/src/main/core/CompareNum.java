@@ -39,31 +39,26 @@ public class CompareNum implements Constants {
 			int strikeCount = record.getStrikeCount();
 			int ballCount = record.getBallCount();
 			if (strikeCount == 0 && ballCount == 0) {
+				record.gameCountPlusOne(1);
 				return outStr();
 			}
 			String strikeStr = strikeCount <= 1 ? BLANK + STRIKE + BLANK
 					: BLANK + STRIKES + BLANK;
 			String ballStr = ballCount <= 1 ? BLANK + BALL : BLANK + BALLS;
-			record.setGameCount(1);
+			record.gameCountPlusOne(1);
 			return strikeCount + strikeStr + ballCount + ballStr;
 		} else {
+			record.setGameCount(0);
 			return outStr();
 		}
 	}
-
-//	private String endMsg() {
-//		return ENDMSG;
-//	}
-//
-//	private String lastMsg() {
-//		return LASTMSG;
-//	}
 
 	private String outStr() {
 		return OUT;
 	}
 
 	private String hitStr() {
+		record.setGameCount(0);
 		return HIT;
 	}
 }

@@ -32,8 +32,12 @@ public class RecordBoard {
 	public int getGameCount() {
 		return gameCount;
 	}
-
+	
 	public void setGameCount(int gameCount) {
+		this.gameCount = gameCount;
+	}
+
+	public void gameCountPlusOne(int gameCount) {
 		this.gameCount += gameCount;
 	}
 

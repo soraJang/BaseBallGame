@@ -18,7 +18,6 @@ public class RandomNum {
 		this.record = record;
 		this.randomNum = num;
 		record.setUsedNum(randomNum);
-		record.setGameNo();
 	}
 
 	public int[] getRandomNum() {
@@ -38,10 +37,15 @@ public class RandomNum {
 	}
 
 	private int[] getRandoms() {
+		boolean checker = false;
 		for (int i = 0; i < 3; i++) {
 			randomNum[i] = getOneRandomNum();
 		}
-		return isSame(randomNum) ? getRandoms() : randomNum;
+		if (isSameThreeNumIsDiff(randomNum) || isSame(randomNum)){
+			checker = true;
+		}
+		
+		return checker ? getRandoms() : randomNum;
 	}
 
 	@Override
@@ -53,7 +57,15 @@ public class RandomNum {
 		return Arrays.toString(num);
 	}
 
-	public boolean isSame(int[] createdNum) {
+	private boolean isSameThreeNumIsDiff(int[] randomNum) {
+		if (randomNum[0] == randomNum[1] || randomNum[1] == randomNum[2]
+				|| randomNum[2] == randomNum[0]) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean isSame(int[] createdNum) {
 		String recordNum = converToString(record.getUsedNum());
 
 		if (recordNum != null && recordNum.equals(converToString(createdNum))) {
