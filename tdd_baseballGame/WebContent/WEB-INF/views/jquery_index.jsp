@@ -5,23 +5,36 @@
 <head>
 <title>BaseBallGame_jQuery</title>
 
-<!--  --><link rel="stylesheet" href="../components/css/horizontal.css">
 <link rel="stylesheet" href="../components/css/bootstrap.css">
-
-<!-- <style type="text/css">
-</style> -->
-
 
 </head>
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="../components/js/horizontalNav.js">
-	
-</script> -->
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.full-width').horizontalNav();
+	$(function() {
+
+		$("#userNum")
+				.keypress(
+						function(event) {
+							if (event.which
+									&& (event.which > 47 && event.which <= 57 || event.which == 8)) {
+								/* for ( var i = 0; i < $("#userNum").val().length; i++) {
+									if ($("#userNum").val()[i] === $("#userNum")
+											.val()[i - 1]
+											|| $("#userNum").val()[i] === $(
+													"#userNum").val()[i - 2]) {
+										console.log("dd");
+										event.preventDefault();
+									}
+								} */
+								if ($("#userNum").val().length >= 3) {
+									event.preventDefault();
+								}
+							} else {
+								event.preventDefault();
+							}
+						});
 	});
 
 	function doCompare() {
@@ -40,20 +53,35 @@
 				if (data.result === "hit") {
 					$("#gameNo").text("NO: " + data.gameNo);
 					doReset();
+					$("p#result").append("Hit");
 				}
+			},
+			complete : function() {
+				$("#userNum").val("");
 			}
 		});
 	};
 
 	function doReset() {
 		$("#result").html("");
+		$("#userNum").val("");
+		$.ajax({
+			type : "POST",
+			url : "/tdd_baseballGame/main/restartGame.do",
+			dataType : "json",
+			success : function(data) {
+				console.log(data);
+				$("#gameNo").text("NO: " + data.gameNo);
+			}
+		});
 	};
 </script>
+
 <body>
 	<h1>BaseballGame</h1>
-	<p id="gameNo">NO: 0</p>
+	<p id="gameNo">NO: 1</p>
 	<br /> 숫자입력
-	<input type="text" name="userNum" id="userNum">
+	<input type="text" name="userNum" id="userNum"'>
 	<input type="button" value="play" onclick="doCompare()" id="btn1">
 	<input type="reset" value="reset" onclick="doReset()" id="btn2">
 	<p id="result"></p>

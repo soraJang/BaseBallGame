@@ -1,6 +1,7 @@
 package main.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +42,17 @@ public class MainController {
 		JSONObject json = new JSONObject();
 		json.put("result", result);
 		json.put("gameCount", record.getGameCount());
+		json.put("gameNo", record.getGameNo());
+		response.getWriter().print(json.toString());
+	}
+
+	@RequestMapping
+	public void restartGame(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		record.setGameCount(0);
+		comNum = new RandomNum(record);
+
+		JSONObject json = new JSONObject();
 		json.put("gameNo", record.getGameNo());
 		response.getWriter().print(json.toString());
 	}
