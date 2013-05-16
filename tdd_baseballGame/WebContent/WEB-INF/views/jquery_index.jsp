@@ -5,18 +5,25 @@
 <head>
 <title>BaseBallGame_jQuery</title>
 
-<link rel="stylesheet" href="../js/bootstrap.css">
+<!--  --><link rel="stylesheet" href="../components/css/horizontal.css">
+<link rel="stylesheet" href="../components/css/bootstrap.css">
 
-<style type="text/css">
-</style>
+<!-- <style type="text/css">
+</style> -->
+
 
 </head>
 <script type="text/javascript"
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js">
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="../components/js/horizontalNav.js">
 	
-</script>
+</script> -->
 
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('.full-width').horizontalNav();
+	});
+
 	function doCompare() {
 		$.ajax({
 			type : "POST",
@@ -31,16 +38,15 @@
 						data.gameCount + "번째 시도:  [" + $('#userNum').val()
 								+ "] " + data.result + "<br/>");
 				if (data.result === "hit") {
-					console.log("dd");
-					/* doReset(); */
 					$("#gameNo").text("NO: " + data.gameNo);
+					doReset();
 				}
 			}
 		});
 	};
 
 	function doReset() {
-		$.ajax({});
+		$("#result").html("");
 	};
 </script>
 <body>
@@ -48,9 +54,8 @@
 	<p id="gameNo">NO: 0</p>
 	<br /> 숫자입력
 	<input type="text" name="userNum" id="userNum">
-	<input type="button" value="click" onclick="doCompare()" id="btn">
-
+	<input type="button" value="play" onclick="doCompare()" id="btn1">
+	<input type="reset" value="reset" onclick="doReset()" id="btn2">
 	<p id="result"></p>
-
 </body>
 </html>

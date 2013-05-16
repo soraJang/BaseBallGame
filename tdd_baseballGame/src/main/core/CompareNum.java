@@ -35,7 +35,7 @@ public class CompareNum implements Constants {
 	}
 
 	private String resultStr() {
-		if (record.getGameCount() <= 10) {
+		if (record.getGameCount() < 10) {
 			int strikeCount = record.getStrikeCount();
 			int ballCount = record.getBallCount();
 			if (strikeCount == 0 && ballCount == 0) {
