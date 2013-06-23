@@ -40,4 +40,5 @@ public class NormalJSONTest {
 		long result = end - start;
 		System.out.println("JSON:GET) " + result + "_" + result / 1000);
 	}
+	
 }

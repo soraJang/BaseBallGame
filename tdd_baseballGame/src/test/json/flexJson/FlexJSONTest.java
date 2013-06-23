@@ -6,6 +6,7 @@ import main.core.RecordBoard;
 
 import org.junit.Test;
 
+import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 
 public class FlexJSONTest {
@@ -29,9 +30,22 @@ public class FlexJSONTest {
 		randomNums.setNums(new int[]{1,2,3});
 		
 		serializer.rootName("result");
-		serializer.serialize(randomNums);
 
-		System.out.println(serializer.toString());
+		System.out.println(serializer.serialize(randomNums));
+	}
+	
+	@Test
+	public void parse() {
+		RandomNums randomNums = new RandomNums();
+		randomNums.setNo(1);
+		randomNums.setNums(new int[]{1,2,3});
+		
+		serializer.rootName("result");
+		
+		String str = serializer.serialize(randomNums);
+		System.out.println(str);
+		
+//		RandomNums parseRandomNums = new JSONDeserializer<RandomNums>().deserialize(str);
 	}
 }
 
