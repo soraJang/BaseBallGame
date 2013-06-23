@@ -61,5 +61,4 @@ public class RecordBoard {
 		return "[Gama Infomation]\n" + "현재 시도한 횟수 :  " + getGameCount() + "\n"
 				+ "앞으로 시도 가능한 횟수 : " + String.valueOf(10 - getGameCount());
 	}
-
 }

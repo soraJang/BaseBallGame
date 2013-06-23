@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>BaseBallGame_jQuery</title>
+<title>J</title>
 </head>
 <body>
-	<form action="/tdd_baseballGame/main/compareNum.do" method="post">
-	<h1>BaseBallGame</h1><br/>
+${haha}
+<!-- 	<form action="/tdd_baseballGame/main/compareNum.do" method="post">
+	<h1>jsonTest</h1><br/>
 	
 		<input type="text" size="10" name="userNum"/> <input type="submit" name="submit" value="click" >
 	</form>
@@ -16,6 +17,6 @@
 	<script type="text/javascript"
 		src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js">
 		
-	</script>
+	</script> -->
 </body>
 </html>

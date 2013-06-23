@@ -53,7 +53,7 @@ public class RandomNum {
 		return Arrays.toString(randomNum);
 	}
 
-	private String converToString(int[] num) {
+	public String converToString(int[] num) {
 		return Arrays.toString(num);
 	}
 

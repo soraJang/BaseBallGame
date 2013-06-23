@@ -1,7 +1,6 @@
 package main.controller;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +12,9 @@ import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 @Controller
 public class MainController {
@@ -76,4 +78,5 @@ public class MainController {
 		}
 		return check;
 	}
+	
 }
