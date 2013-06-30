@@ -1,12 +1,11 @@
 package test.json.gson;
 
 import main.core.RandomNum;
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class GsonJSONTest {

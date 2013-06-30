@@ -7,14 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import main.core.CompareNum;
 import main.core.RandomNum;
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
 import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 @Controller
 public class MainController {

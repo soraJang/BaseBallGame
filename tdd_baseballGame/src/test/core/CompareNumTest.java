@@ -3,7 +3,7 @@ package test.core;
 import junit.framework.TestCase;
 import main.core.CompareNum;
 import main.core.RandomNum;
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
 
 import org.junit.Test;
 

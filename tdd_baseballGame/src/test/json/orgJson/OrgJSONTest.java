@@ -1,7 +1,7 @@
 package test.json.orgJson;
 
 import main.core.RandomNum;
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
 
 import org.junit.Test;
 

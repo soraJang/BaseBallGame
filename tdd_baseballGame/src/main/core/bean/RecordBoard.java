@@ -1,4 +1,9 @@
-package main.core;
+package main.core.bean;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import main.core.pattern.observer.Watcher;
 
 public class RecordBoard {
 	private int ballCount;

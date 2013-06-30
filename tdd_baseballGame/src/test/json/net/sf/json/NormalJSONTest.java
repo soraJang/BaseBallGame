@@ -1,7 +1,7 @@
 package test.json.net.sf.json;
 
 import main.core.RandomNum;
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
 import net.sf.json.JSONObject;
 
 import org.junit.Before;

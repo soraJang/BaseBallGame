@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 import main.constants.Constants;
 import main.core.CompareNum;
 import main.core.RandomNum;
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
+
 
 public class BaseballGame implements Constants {
 	static RandomNum random;

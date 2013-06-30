@@ -1,8 +1,13 @@
 package main.core;
 
-import main.constants.Constants;
+import java.util.Observable;
+import java.util.Observer;
 
-public class CompareNum implements Constants {
+import main.constants.Constants;
+import main.core.bean.RecordBoard;
+import main.core.pattern.observer.Watcher;
+
+public class CompareNum implements Constants, Observer{
 	RecordBoard record;
 
 	public CompareNum(RecordBoard record) {
@@ -60,5 +65,12 @@ public class CompareNum implements Constants {
 	private String hitStr() {
 		record.setGameCount(0);
 		return HIT;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if (o instanceof Watcher) {
+			System.out.println("watcher!");
+		}
 	}
 }

@@ -1,8 +1,13 @@
 package main.core;
 
 import java.util.Arrays;
+import java.util.Observable;
+import java.util.Observer;
 
-public class RandomNum {
+import main.core.bean.RecordBoard;
+import main.core.pattern.observer.Watcher;
+
+public class RandomNum implements GameNums {
 	RecordBoard record;
 
 	private int[] randomNum = { 0, 0, 0 };
@@ -41,10 +46,10 @@ public class RandomNum {
 		for (int i = 0; i < 3; i++) {
 			randomNum[i] = getOneRandomNum();
 		}
-		if (isSameThreeNumIsDiff(randomNum) || isSame(randomNum)){
+		if (isSameThreeNumIsDiff(randomNum) || isSame(randomNum)) {
 			checker = true;
 		}
-		
+
 		return checker ? getRandoms() : randomNum;
 	}
 

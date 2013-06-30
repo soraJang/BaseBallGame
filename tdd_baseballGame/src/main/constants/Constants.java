@@ -17,5 +17,9 @@ public interface Constants {
 	public String I = "i";
 	public String R = "r";
 	public String S = "s";
+	
+	public static class GAME_NAMES {
+		public static String BASEBALL_GAME = "BaseballGame";
+	}
 
 }

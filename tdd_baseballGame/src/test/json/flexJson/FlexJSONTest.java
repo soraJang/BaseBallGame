@@ -2,11 +2,10 @@ package test.json.flexJson;
 
 import java.util.Arrays;
 
-import main.core.RecordBoard;
+import main.core.bean.RecordBoard;
 
 import org.junit.Test;
 
-import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 
 public class FlexJSONTest {
